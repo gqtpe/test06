@@ -1,4 +1,5 @@
 import axios from "axios";
+import type {DefaultPayload} from "@/app/types.ts";
 
 const protocol = import.meta.env.VITE_APP_TEST_APP_PROTOCOL
 const host = import.meta.env.VITE_APP_TEST_APP_HOST
@@ -32,7 +33,10 @@ const testAPI = {
             });
             console.log(response.data)
             return {ok: true}
-    }
+    },
+    getStocks: async(payload: DefaultPayload)=>{
+        return await instance.get("stocks");
+    },
 }
 
 export default testAPI

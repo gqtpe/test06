@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import {useAuth} from "@/features/Auth/authStore.ts";
-import {ref} from "vue";
+import {onBeforeMount, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
-
+onBeforeMount(()=>{
+  if(useAuth().isLoggedIn()){
+    router.push("/")
+  }
+})
 const {logIn} = useAuth()
 const key = ref()
 const route = useRoute()

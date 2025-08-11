@@ -15,7 +15,7 @@ export const useAuth = defineStore('auth', {
                 if(response.ok){
                     testAPI._setKey(key)
                     this.key = key
-                    localStorage.setItem("token", JSON.stringify(key))
+                    localStorage.setItem("token", key)
                     appStore.setAppStatus('Login success')
                 }
                 return key;
@@ -29,7 +29,7 @@ export const useAuth = defineStore('auth', {
             }
         },
         async initAuth(){
-            const savedKey = localStorage.getItem("auth_key");
+            const savedKey = localStorage.getItem("token");
             if (savedKey) {
                 const response = await testAPI.checkKey(savedKey);
                 if (response.ok) {
