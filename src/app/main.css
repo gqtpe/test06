@@ -1,0 +1,22 @@
+#app{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.v-toast {
+    min-height: auto;
+    border-radius: 4px;
+    padding: 0 !important;
+}
+.v-toast__text{
+    padding: 0.5em 0.5em 0.5em 0 !important;
+}
+.v-toast__item{
+    min-height: unset !important;
+}
+.v-toast__icon {
+    margin-left: 0.5em !important;
+    margin-left: 0.5em !important;
+    width: 18px !important;
+    height: 18px !important;
+}
