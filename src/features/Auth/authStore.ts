@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import testAPI from "@/api/testAPI.ts";
-import {useAppStore} from "@/app/appStore.ts";
+import {useAppStore} from "@/features/App/appStore.ts";
 import type {AxiosError} from "axios";
 
 export const useAuth = defineStore('auth', {
