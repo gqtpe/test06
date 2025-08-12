@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import type {AppStatus, Error} from "@/app/types.ts";
+import type {AppStatus, Error} from "@/features/App/types.ts";
 
 export const useAppStore = defineStore('store', {
     state: () => ({
