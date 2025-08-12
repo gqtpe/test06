@@ -14,7 +14,22 @@ const routes: RouteRecordRaw[] = [
         path: '/stocks',
         component: Stocks,
         meta: {requiresAuth: true},
-    }
+    },
+    {
+        path: '/incomes',
+        component: Incomes,
+        meta: {requiresAuth: true},
+    },
+    {
+        path: '/orders',
+        component: Orders,
+        meta: {requiresAuth: true},
+    },
+    {
+        path: '/sales',
+        component: Sales,
+        meta: {requiresAuth: true},
+    },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
 ]
 
