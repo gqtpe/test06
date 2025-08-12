@@ -2,6 +2,9 @@ import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
 import LoginPage from "@/features/Auth/LoginPage.vue";
 import Stocks from "@/features/Stocks/Stocks.vue";
 import {useAuth} from "@/features/Auth/authStore.ts";
+import Incomes from "@/features/Incomes/Incomes.vue";
+import Orders from "@/features/Orders/Orders.vue";
+import Sales from "@/features/Sales/Sales.vue";
 import NotFound from "@/features/App/NotFound.vue";
 
 const routes: RouteRecordRaw[] = [
