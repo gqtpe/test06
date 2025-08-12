@@ -6,7 +6,6 @@ useAppToasts();
 
 <template>
 <div class="bg-zinc-800 w-[100wh] h-[100vh]">
-  Hello
 <RouterView></RouterView>
 </div>
 </template>
