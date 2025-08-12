@@ -37,6 +37,14 @@ const testAPI = {
     getStocks: async(payload: DefaultPayload)=>{
         return await instance.get("stocks");
     },
+    getOrders: async(payload: DefaultPayload)=>{
+        return await instance.get<DefaultResponseType<Order[]>>("orders", {params: {...payload}});
+    },
+    getSales: async(payload: DefaultPayload)=>{
+        return await instance.get("sales", {params: {...payload}});
+    },
+
+
 }
 
 export default testAPI
