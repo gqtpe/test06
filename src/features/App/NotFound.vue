@@ -8,13 +8,10 @@
 
 <style>
 .not-found{
-  height: 100vh;
-  width: 100vw;
   user-select: none;
-  background: var(--color-zinc-400);
+  height: 100%;
   color: black;
   @media(prefers-color-scheme: dark) {
-    background: var(--color-zinc-900);
     color: white;
   }
   h1{
