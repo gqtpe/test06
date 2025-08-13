@@ -10,6 +10,12 @@ export type PaginationLinks = {
     prev: string | null;
     next: string | null;
 };
+export type DataErrorType = {
+    dateFrom: string;
+    dateTo: string;
+    limit: string;
+    page: string;
+}
 export type PaginationMeta = {
     current_page: number;
     from: number;

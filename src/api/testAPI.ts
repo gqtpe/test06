@@ -1,7 +1,8 @@
 import axios from "axios";
 import type {DefaultPayload} from "@/features/App/types.ts";
 import type {DefaultResponseType} from "@/api/types.ts";
-import type {Order} from "@/features/Orders/types/types.ts";
+
+import type {Entities, OrderItem, SaleItem, StockItem} from "@/api/entities.ts";
 
 const protocol = import.meta.env.VITE_APP_TEST_APP_PROTOCOL
 const host = import.meta.env.VITE_APP_TEST_APP_HOST
@@ -44,12 +45,14 @@ const testAPI = {
         return await instance.get("incomes", {params: {...payload}});
     },
     getOrders: async(payload: DefaultPayload)=>{
-        return await instance.get<DefaultResponseType<Order[]>>("orders", {params: {...payload}});
+        return await instance.get<DefaultResponseType<OrderItem[]>>("orders", {params: {...payload}});
     },
     getSales: async(payload: DefaultPayload)=>{
         return await instance.get("sales", {params: {...payload}});
     },
-
+/*    getItems: async(type: Entities,payload: DefaultPayload)=>{
+        return await instance.get<(OrderItem|SaleItem|StockItem)[]>(type, {params: {...payload}});
+    }*/
 
 }
 

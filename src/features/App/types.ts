@@ -8,3 +8,9 @@ export type DefaultPayload = {
     page: number
     limit: number
 }
+export type Filters = {
+    dateFrom: string
+    dateTo: string
+    page: number
+    limit: number
+}
