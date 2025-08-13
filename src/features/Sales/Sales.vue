@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import {onMounted} from "vue";
-import {storeToRefs} from 'pinia';
+import {storeToRefs} from "pinia";
+import {useOrders} from "@/features/Orders/ordersStore.ts";
+import dayjs from "dayjs";
+import {createColumnHelper, getCoreRowModel, getSortedRowModel, type Table, useVueTable,} from "@tanstack/vue-table";
+import TableC from "@/components/Table.vue"
+import type {OrderItem, SaleItem} from "@/api/entities.ts";
+import useFetchData from "@/features/App/hooks/useFetchData.ts";
+import Pagination from "@/components/Pagination.vue";
 import {useSales} from "@/features/Sales/salesStore.ts";
+import DataPage from "@/components/DataPage.vue";
 
+const store = useSales()
+const columnHelper = createColumnHelper<SaleItem>();
+const columns = [
+  columnHelper.accessor((cell) => dayjs(cell.date).format('YYYY/MM/DD'), {header: "Date"}),
+  columnHelper.accessor("supplier_article", {header: "Article"}),
 
-const incomesStore = useSales();
-const {sales} = storeToRefs(incomesStore);
-const {getSales} = incomesStore;
-onMounted(async () => {
-  await getSales({
-    dateFrom: '2025-08-11',
-    dateTo: '2025-08-11',
-    limit: 10,
-    page: 1,
-  });
-});
+  columnHelper.accessor("oblast_okrug_name", {header: "Oblast"}),
+  columnHelper.accessor("region_name", {header: "Region"}),
+  columnHelper.accessor((cell) => Number(cell.finished_price).toFixed(2), {header: "Price"}),
+];
 </script>
 
+
 <template>
-  Incomes Page
-  {{ JSON.stringify(sales) }}
+  <DataPage :store="store" :fetchFn="store.getSales" :columns="columns" />
 </template>
+

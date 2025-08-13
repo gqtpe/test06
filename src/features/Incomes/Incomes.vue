@@ -1,24 +1,21 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useStocksStore } from "@/features/Stocks/stocksStore.ts";
-import { storeToRefs } from 'pinia';
-import {useIncomes} from "@/features/Incomes/incomesStore.ts";
+import dayjs from "dayjs";
+import { createColumnHelper } from "@tanstack/vue-table";
+import { useIncomes } from "@/features/Incomes/incomesStore.ts";
+import type { IncomesItem } from "@/api/entities.ts";
+import DataPage from "@/components/DataPage.vue";
 
-
-const incomesStore = useIncomes();
-const { incomes } = storeToRefs(incomesStore);
-const { getIncomes } = incomesStore;
-onMounted(async () => {
-  await getIncomes({
-    dateFrom: '2025-08-11',
-    dateTo: '2025-08-11',
-    limit: 10,
-    page: 1,
-  });
-});
+const store = useIncomes();
+const columnHelper = createColumnHelper<IncomesItem>();
+const columns = [
+  columnHelper.accessor((c) => dayjs(c.date).format("YYYY/MM/DD"), { header: "Date" }),
+  columnHelper.accessor((c) => dayjs(c.date_close).format("YYYY/MM/DD"), { header: "Date Close" }),
+  columnHelper.accessor("supplier_article", { header: "Article" }),
+  columnHelper.accessor("warehouse_name", { header: "Warehouse" }),
+  columnHelper.accessor((c) => Number(c.total_price).toFixed(2), { header: "Price" }),
+];
 </script>
 
 <template>
-  Incomes Page
-  {{ JSON.stringify(incomes) }}
+  <DataPage :store="store" :fetchFn="store.getIncomes" :columns="columns" />
 </template>
