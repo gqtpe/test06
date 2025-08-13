@@ -13,7 +13,7 @@ type Props<T> = {
 const {store, fetchFn, columns} = defineProps<Props<T>>();
 
 const {total, data} = storeToRefs(store);
-const filters = useFetchData(fetchFn);
+const filters = useFetchData(fetchFn,data.value.length||0);
 
 const table: Table<T> = useVueTable({
   data,
