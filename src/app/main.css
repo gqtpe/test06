@@ -18,6 +18,26 @@ html{
         font-size: 13px;
     }
 }
+
+button:disabled{
+    color: var(--color-gray-600)
+}
+input {
+    color: var(--color-gray-200);
+    color-scheme: dark;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background: var(--color-gray-800);
+    transition: background-color 0.2s ease-in-out;
+    &:hover{
+        background: var(--color-gray-600);
+    }
+    &:focus{
+        outline: none;
+        background: var(--color-gray-600);
+    }
+}
+
 .v-toast {
     min-height: auto;
     border-radius: 4px;
