@@ -1,7 +1,8 @@
 import {defineStore} from "pinia";
 import testAPI from "@/api/testAPI.ts";
-import {useAppStore} from "@/app/appStore.ts";
+import {useAppStore} from "@/features/App/appStore.ts";
 import type {AxiosError} from "axios";
+import showError from "@/utils/error-util.ts";
 
 export const useAuth = defineStore('auth', {
     state: () => ({
@@ -20,12 +21,7 @@ export const useAuth = defineStore('auth', {
                 }
                 return key;
             } catch (error) {
-                const e = error as AxiosError<{error: string}>;
-                if(e.response?.data.error){
-                    appStore.setAppError(e.response.data.error)
-                }else{
-                    appStore.setAppError(e.message)
-                }
+                showError(error);
             }
         },
         async initAuth(){

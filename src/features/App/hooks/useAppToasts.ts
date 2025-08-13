@@ -1,4 +1,4 @@
-import {useAppStore} from "@/app/appStore.ts";
+import {useAppStore} from "@/features/App/appStore.ts";
 import {useToast} from "vue-toast-notification";
 import {watch} from "vue";
 

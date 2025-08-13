@@ -1,5 +1,8 @@
 import axios from "axios";
-import type {DefaultPayload} from "@/app/types.ts";
+import type {DefaultPayload} from "@/features/App/types.ts";
+import type {DefaultResponseType} from "@/api/types.ts";
+
+import type {Entities, OrderItem, SaleItem, StockItem} from "@/api/entities.ts";
 
 const protocol = import.meta.env.VITE_APP_TEST_APP_PROTOCOL
 const host = import.meta.env.VITE_APP_TEST_APP_HOST
@@ -22,21 +25,35 @@ const testAPI = {
         })
     },
     checkKey: async ( key: string):Promise<{ok: boolean}> =>{
+            const date = new Date();
+            const formatted = date.toISOString().split('T')[0];
             const response = await instance.get("stocks", {
                 params: {
                     key,
-                    dateFrom: "2025-08-11",
-                    dateTo: "2025-08-11",
+                    dateFrom: formatted,
+                    dateTo: formatted,
                     page: 1,
                     limit: 1,
                 },
             });
-            console.log(response.data)
             return {ok: true}
     },
     getStocks: async(payload: DefaultPayload)=>{
-        return await instance.get("stocks");
+        return await instance.get("stocks", {params: {...payload}});
     },
+    getIncomes: async(payload: DefaultPayload)=>{
+        return await instance.get("incomes", {params: {...payload}});
+    },
+    getOrders: async(payload: DefaultPayload)=>{
+        return await instance.get<DefaultResponseType<OrderItem[]>>("orders", {params: {...payload}});
+    },
+    getSales: async(payload: DefaultPayload)=>{
+        return await instance.get("sales", {params: {...payload}});
+    },
+/*    getItems: async(type: Entities,payload: DefaultPayload)=>{
+        return await instance.get<(OrderItem|SaleItem|StockItem)[]>(type, {params: {...payload}});
+    }*/
+
 }
 
 export default testAPI
