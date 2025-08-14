@@ -26,6 +26,7 @@ watch(
     (newData) => {
       chartInstance.value?.destroy();
       if (ctx.value) {
+        //@ts-ignore
         chartInstance.value = new Chart(ctx.value, {
           type: 'line',
           data: {
