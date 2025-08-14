@@ -18,7 +18,11 @@ html{
         font-size: 13px;
     }
 }
+button{
+    padding: 0.5rem;
+    border-radius: 0.25rem;
 
+}
 button:disabled{
     color: var(--color-gray-600)
 }

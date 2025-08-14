@@ -4,6 +4,8 @@ import {type ColumnDef, getCoreRowModel, getSortedRowModel, type Table, useVueTa
 import TableC from "@/components/Table.vue";
 import Pagination from "@/components/Pagination.vue";
 import useFetchData from "@/features/App/hooks/useFetchData.ts";
+import {ref} from "vue";
+import Chart from "@/components/Chart.vue";
 
 type Props<T> = {
   store: StoreGeneric;
@@ -13,24 +15,40 @@ type Props<T> = {
 const {store, fetchFn, columns} = defineProps<Props<T>>();
 
 const {total, data} = storeToRefs(store);
-const filters = useFetchData(fetchFn,data.value.length||0);
+const {filters, changeLimit} = useFetchData(fetchFn,data.value.length||0);
+const switchToCharts = ref<boolean>(false)
+const toggleValue = () =>{
+  if(!switchToCharts.value){
+    changeLimit(100)
+  }else{
+    changeLimit(10)
+  }
 
+  switchToCharts.value = !switchToCharts.value;
+}
 const table: Table<T> = useVueTable({
   data,
   columns,
   getCoreRowModel: getCoreRowModel(),
   getSortedRowModel: getSortedRowModel(),
 });
+
 </script>
 
 <template>
   <div class="data-page">
     <div class="filters">
-      <input class="date-input" type="date" v-model="filters.dateFrom"/>
+      <button @click="toggleValue" class="bg-gray-800 transition-colors self-start hover:bg-gray-600">{{switchToCharts?'Back':'Watch Charts'}}</button>
+      <div class="flex gap-4">
+        <input class="date-input" type="date" v-model="filters.dateFrom"/>
       <input class="date-input" type="date" v-model="filters.dateTo"/>
+      </div>
     </div>
-    <div class="orders flex justify-center items-center">
+    <div v-if="!switchToCharts" class="orders flex justify-center items-center">
       <TableC :table="table"/>
+    </div>
+    <div v-else>
+      <Chart :data="data"/>
     </div>
     <Pagination :total="total" :filters="filters"/>
   </div>
@@ -45,8 +63,8 @@ const table: Table<T> = useVueTable({
 
 .filters {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  justify-content: space-between;
+
   padding: 0.5rem;
 }
 
