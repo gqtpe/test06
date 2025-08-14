@@ -1,7 +1,7 @@
 export type OrderItem = {
     g_number: string;
-    date: string; //date
-    last_change_date: string; // date
+    date: string; // "YYYY-MM-DD"
+    last_change_date: string;// "YYYY-MM-DD"
     supplier_article: string;
     tech_size: string;
     barcode: number;
@@ -20,7 +20,7 @@ export type OrderItem = {
 };
 export type SaleItem = {
     g_number: string;
-    date: string;
+    date: string;// "YYYY-MM-DD"
     last_change_date: string;
     supplier_article: string;
     tech_size: string;
@@ -49,7 +49,7 @@ export type SaleItem = {
 };
 export type StockItem = {
     date: string; // "YYYY-MM-DD"
-    last_change_date: string | null;
+    last_change_date: string | null;// "YYYY-MM-DD"
     supplier_article: string;
     tech_size: string;
     barcode: number;
@@ -65,20 +65,20 @@ export type StockItem = {
     category: string;
     brand: string;
     sc_code: number;
-    price: string; // можно number, если планируются вычисления
-    discount: string; // можно number
+    price: string;
+    discount: string;
 };
 export type IncomesItem = {
     income_id: number;
     number: string;
-    date: string; // ISO date
-    last_change_date: string; // ISO date
+    date: string; // "YYYY-MM-DD"
+    last_change_date: string; // "YYYY-MM-DD"
     supplier_article: string;
     tech_size: string;
     barcode: number;
     quantity: number;
-    total_price: string; // если приходит числом, поменять на number
-    date_close: string; // ISO date
+    total_price: string;
+    date_close: string;
     warehouse_name: string;
     nm_id: number;
 }

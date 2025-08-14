@@ -8,7 +8,6 @@ const { data } = defineProps<Props>();
 
 const ctx = useTemplateRef<HTMLCanvasElement>('myChart');
 const chartInstance = ref<Chart>();
-
 const selectValueFromEntities = (data: Entities) => {
   if ('number' in (data[0] || {})) {
     return (data as IncomesItem[]).map(item => Number(item.quantity));

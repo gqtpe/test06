@@ -4,10 +4,8 @@ import type {Table} from "@tanstack/vue-table";
 
 type Props = {
   table: Table<any>
-
 }
 defineProps<Props>()
-
 
 </script>
 

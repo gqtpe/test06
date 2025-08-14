@@ -22,7 +22,7 @@ export type PaginationMeta = {
     last_page: number;
     links: PaginationMetaLink[];
     path: string;
-    per_page: string; // API отдаёт как строку
+    per_page: string;
     to: number;
     total: number;
 };
