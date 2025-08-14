@@ -27,11 +27,11 @@ watch(
       chartInstance.value?.destroy();
       if (ctx.value) {
         chartInstance.value = new Chart(ctx.value, {
-          type: 'bar',
+          type: 'line',
           data: {
             labels: newData.map(item => item.date),
             datasets: [{
-              label: 'Acquisitions by year',
+              label: 'value',
               data: selectValueFromEntities(newData),
               borderWidth: 1
             }]
