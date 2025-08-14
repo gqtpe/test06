@@ -8,9 +8,7 @@ const isMobile = useIsMobile()
 </script>
 
 <template>
-  <header>
-
-  </header>
+  <header></header>
   <aside class="col-span-3 paper">
     <div class="nav-head"></div>
     <Teleport to="header" :disabled="!isMobile">
@@ -19,7 +17,6 @@ const isMobile = useIsMobile()
           <v-icon :name="link.icon"/>
           <span>{{ link.title }}</span>
         </RouterLink>
-
       </nav>
     </Teleport>
   </aside>
