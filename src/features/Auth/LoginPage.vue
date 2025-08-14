@@ -9,16 +9,19 @@ onBeforeMount(() => {
   }
 })
 const {logIn} = useAuth()
-const key = ref()
+const key = ref<string>()
 const route = useRoute()
 const router = useRouter()
 const redirectPage = route.query.redirect as string | undefined
 const submit = async (e: Event) => {
   e.preventDefault();
-  const response = await logIn(key.value)
-  if (response) {
-    router.push(redirectPage || '/')
+  if(key.value){
+    const response = await logIn(key.value)
+    if (response) {
+      router.push(redirectPage || '/')
+    }
   }
+
 
 }
 </script>
@@ -36,8 +39,7 @@ const submit = async (e: Event) => {
           <div class="mt-2">
             <input
                 id="KEY"
-                :value="key"
-                @input="event => key = event.target?.value!"
+                v-model="key"
                 type="text"
                 name="key"
                 class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"/>
