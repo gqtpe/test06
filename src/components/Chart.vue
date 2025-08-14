@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto';
-import {onMounted, onBeforeUnmount, useTemplateRef, watch, ref} from "vue";
+import {onBeforeUnmount, ref, useTemplateRef, watch} from "vue";
 import type {Entities, IncomesItem, OrderItem, SaleItem, StockItem} from "@/api/entities.ts";
 
 type Props = { data: Entities }
