@@ -6,13 +6,17 @@ import Incomes from "@/features/Incomes/Incomes.vue";
 import Orders from "@/features/Orders/Orders.vue";
 import Sales from "@/features/Sales/Sales.vue";
 import NotFound from "@/features/App/NotFound.vue";
+import Home from "@/features/App/Home.vue";
 
 const routes: RouteRecordRaw[] = [
+    {
+        path: '/',
+        component: Home,
+    },
     {
         path: '/login',
         component: LoginPage,
     },
-
     {
         path: '/stocks',
         component: Stocks,

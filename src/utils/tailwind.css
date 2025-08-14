@@ -4,7 +4,7 @@
 @theme {
     --font-main: 'Poppins', sans-serif;
     --app-bg: #0c0c0c;
-    --color-paper: #111111;
+    --color-paper: #141414;
     --mesh-bg: radial-gradient(at 3% 6%, hsla(111, 92%, 70%, 1) 0px, transparent 50%),
     radial-gradient(at 43% 54%, hsla(291, 69%, 67%, 1) 0px, transparent 50%),
     radial-gradient(at 32% 97%, hsla(337, 74%, 64%, 1) 0px, transparent 50%),

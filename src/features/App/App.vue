@@ -10,15 +10,15 @@ const isMobile = useIsMobile()
 <template>
   <header></header>
   <aside class="col-span-3 paper">
-    <div class="nav-head"></div>
-    <Teleport to="header" :disabled="!isMobile">
-      <nav class="text-gray-500 flex flex-col gap-2 max-sm:flex-row">
-        <RouterLink active-class="active" class="nav-link" v-for="link in links" :key="link.path" :to="link.path">
-          <v-icon :name="link.icon"/>
-          <span>{{ link.title }}</span>
-        </RouterLink>
-      </nav>
-    </Teleport>
+      <div class="nav-head"></div>
+      <Teleport to="header" :disabled="!isMobile">
+        <nav class="text-gray-500 flex flex-col gap-2 max-sm:flex-row">
+          <RouterLink active-class="active" class="nav-link" v-for="link in links" :key="link.path" :to="link.path">
+            <v-icon :name="link.icon"/>
+            <span>{{ link.title }}</span>
+          </RouterLink>
+        </nav>
+      </Teleport>
   </aside>
   <main class="paper col-span-9">
     <RouterView></RouterView>
@@ -91,10 +91,11 @@ const isMobile = useIsMobile()
 }
 
 aside {
+  height: min-content;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 2rem;
-
 }
 
 .content {
