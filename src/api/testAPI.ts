@@ -10,9 +10,9 @@ const port = import.meta.env.VITE_APP_TEST_APP_PORT
 
 
 const instance = axios.create({
-    baseURL: `${protocol}://${host}:${port}/api/`,
+    baseURL: `/api/proxy/`, // локальный прокси на Vercel
+});
 
-})
 
 const testAPI = {
     _setKey: (key: string) => {
