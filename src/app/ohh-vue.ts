@@ -6,7 +6,8 @@ import {
     CoSad,
     GiCardboardBox,
     PrSortAlt,
-    PrSortAmountDownAlt, PrSortAmountUp, PrSortAmountUpAlt
+    PrSortAmountDownAlt,
+    PrSortAmountUp
 } from "oh-vue-icons/icons";
 
 addIcons(

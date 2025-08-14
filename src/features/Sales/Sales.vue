@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import {storeToRefs} from "pinia";
-import {useOrders} from "@/features/Orders/ordersStore.ts";
 import dayjs from "dayjs";
-import {createColumnHelper, getCoreRowModel, getSortedRowModel, type Table, useVueTable,} from "@tanstack/vue-table";
-import TableC from "@/components/Table.vue"
-import type {OrderItem, SaleItem} from "@/api/entities.ts";
-import useFetchData from "@/features/App/hooks/useFetchData.ts";
-import Pagination from "@/components/Pagination.vue";
+import {createColumnHelper,} from "@tanstack/vue-table";
+import type {SaleItem} from "@/api/entities.ts";
 import {useSales} from "@/features/Sales/salesStore.ts";
 import DataPage from "@/components/DataPage.vue";
 
@@ -24,6 +19,6 @@ const columns = [
 
 
 <template>
-  <DataPage :store="store" :fetchFn="store.getSales" :columns="columns" />
+  <DataPage :store="store" :fetchFn="store.getSales" :columns="columns"/>
 </template>
 

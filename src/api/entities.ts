@@ -82,6 +82,6 @@ export type IncomesItem = {
     warehouse_name: string;
     nm_id: number;
 }
-export type EntitiesType = 'stocks'|'incomes'|'sales'|'orders';
-export type Entities = (OrderItem|StockItem|SaleItem|IncomesItem)[];
+export type EntitiesType = 'stocks' | 'incomes' | 'sales' | 'orders';
+export type Entities = (OrderItem | StockItem | SaleItem | IncomesItem)[];
 

@@ -49,10 +49,6 @@ thead, tbody {
   display: table-header-group;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-}
-
 th, td {
   padding: 0.5rem;
   text-align: center;

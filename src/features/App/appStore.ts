@@ -7,10 +7,10 @@ export const useAppStore = defineStore('store', {
         status: null as AppStatus,
     }),
     actions: {
-        setAppStatus(state:AppStatus){
+        setAppStatus(state: AppStatus) {
             this.status = state
         },
-        setAppError(state:Error){
+        setAppError(state: Error) {
             this.error = state
         }
     }

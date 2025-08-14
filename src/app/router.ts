@@ -33,7 +33,7 @@ const routes: RouteRecordRaw[] = [
         component: Sales,
         meta: {requiresAuth: true},
     },
-    { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound },
+    {path: '/:pathMatch(.*)*', name: 'not-found', component: NotFound},
 ]
 
 

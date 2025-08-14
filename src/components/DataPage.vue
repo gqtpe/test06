@@ -15,12 +15,12 @@ type Props<T> = {
 const {store, fetchFn, columns} = defineProps<Props<T>>();
 
 const {total, data} = storeToRefs(store);
-const {filters, changeLimit} = useFetchData(fetchFn,data.value.length||0);
+const {filters, changeLimit} = useFetchData(fetchFn, data.value.length || 0);
 const switchToCharts = ref<boolean>(false)
-const toggleValue = () =>{
-  if(!switchToCharts.value){
+const toggleValue = () => {
+  if (!switchToCharts.value) {
     changeLimit(100)
-  }else{
+  } else {
     changeLimit(10)
   }
 
@@ -38,10 +38,12 @@ const table: Table<T> = useVueTable({
 <template>
   <div class="data-page">
     <div class="filters">
-      <button @click="toggleValue" class="bg-gray-800 transition-colors self-start hover:bg-gray-600">{{switchToCharts?'Back':'Watch Charts'}}</button>
+      <button @click="toggleValue" class="bg-gray-800 transition-colors self-start hover:bg-gray-600">
+        {{ switchToCharts ? 'Back' : 'Watch Charts' }}
+      </button>
       <div class="flex gap-4">
         <input class="date-input" type="date" v-model="filters.dateFrom"/>
-      <input class="date-input" type="date" v-model="filters.dateTo"/>
+        <input class="date-input" type="date" v-model="filters.dateTo"/>
       </div>
     </div>
     <div v-if="!switchToCharts" class="orders flex justify-center items-center">

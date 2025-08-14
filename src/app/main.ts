@@ -1,5 +1,5 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 import 'vue-toast-notification/dist/theme-bootstrap.css';
 import './main.css';
 import App from '../features/App/App.vue'

@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
-import type { DefaultPayload } from "@/features/App/types.ts";
+import {defineStore} from 'pinia';
+import type {DefaultPayload} from "@/features/App/types.ts";
 import testAPI from "@/api/testAPI.ts";
-import type {IncomesItem, StockItem} from "@/api/entities.ts";
+import type {IncomesItem} from "@/api/entities.ts";
 import type {PaginationLinks} from "@/api/types.ts";
 import showError from "@/utils/error-util.ts";
 

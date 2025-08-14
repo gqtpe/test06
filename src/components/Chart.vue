@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Chart from 'chart.js/auto';
-import { onMounted, onBeforeUnmount, ref, useTemplateRef, watch } from "vue";
-import type { Entities, IncomesItem, OrderItem, SaleItem, StockItem } from "@/api/entities.ts";
+import {onBeforeUnmount, onMounted, ref, useTemplateRef, watch} from "vue";
+import type {Entities, IncomesItem, OrderItem, SaleItem, StockItem} from "@/api/entities.ts";
 
 type Props = { data: Entities }
-const { data } = defineProps<Props>();
+const {data} = defineProps<Props>();
 
 const ctx = useTemplateRef<HTMLCanvasElement>('myChart');
 const chartInstance = ref<Chart>();
@@ -46,7 +46,7 @@ watch(
         chartInstance.value.update();
       }
     },
-    { deep: true }
+    {deep: true}
 );
 
 onBeforeUnmount(() => {

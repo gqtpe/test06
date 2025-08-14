@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
 
-
 @theme {
     --font-main: 'Poppins', sans-serif;
     --app-bg: #0c0c0c;
     --color-paper: #111111;
-    --mesh-bg:
-            radial-gradient(at 3% 6%, hsla(111,92%,70%,1) 0px, transparent 50%),
-            radial-gradient(at 43% 54%, hsla(291,69%,67%,1) 0px, transparent 50%),
-            radial-gradient(at 32% 97%, hsla(337,74%,64%,1) 0px, transparent 50%),
-            radial-gradient(at 56% 72%, hsla(19,80%,67%,1) 0px, transparent 50%),
-            radial-gradient(at 64% 25%, hsla(82,92%,63%,1) 0px, transparent 50%),
-            radial-gradient(at 14% 76%, hsla(257,71%,62%,1) 0px, transparent 50%),
-            radial-gradient(at 41% 26%, hsla(34,75%,68%,1) 0px, transparent 50%);
+    --mesh-bg: radial-gradient(at 3% 6%, hsla(111, 92%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 43% 54%, hsla(291, 69%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 32% 97%, hsla(337, 74%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 56% 72%, hsla(19, 80%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 64% 25%, hsla(82, 92%, 63%, 1) 0px, transparent 50%),
+    radial-gradient(at 14% 76%, hsla(257, 71%, 62%, 1) 0px, transparent 50%),
+    radial-gradient(at 41% 26%, hsla(34, 75%, 68%, 1) 0px, transparent 50%);
 }

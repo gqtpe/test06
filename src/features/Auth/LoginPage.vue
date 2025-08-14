@@ -2,8 +2,9 @@
 import {useAuth} from "@/features/Auth/authStore.ts";
 import {onBeforeMount, ref} from "vue";
 import {useRoute, useRouter} from "vue-router";
-onBeforeMount(()=>{
-  if(useAuth().isLoggedIn()){
+
+onBeforeMount(() => {
+  if (useAuth().isLoggedIn()) {
     router.push("/")
   }
 })

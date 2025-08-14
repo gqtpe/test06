@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, type Ref} from "vue";
+import {computed} from "vue";
 import type {Filters} from "@/features/App/types.ts";
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
 }
 let {total, filters} = defineProps<Props>()
 const maxPage = computed(() => Math.ceil(total / filters.limit));
+
 function prevPage() {
   if (filters.page > 1) filters.page--;
 }
@@ -15,6 +16,7 @@ function prevPage() {
 function nextPage() {
   if (filters.page < maxPage.value) filters.page++;
 }
+
 const displayFrom = computed(() => 1 + (filters.page - 1) * filters.limit);
 const displayTo = computed(() => Math.min(filters.page * filters.limit, total));
 </script>

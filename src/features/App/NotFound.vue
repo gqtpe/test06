@@ -7,19 +7,21 @@
 </template>
 
 <style>
-.not-found{
+.not-found {
   user-select: none;
   height: 100%;
   color: black;
-  @media(prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     color: white;
   }
-  h1{
+
+  h1 {
     font-size: clamp(3rem, 9vw, 6rem);
     font-weight: 500;
     margin-bottom: 1rem;
   }
-  p{
+
+  p {
     font-weight: 200;
     font-size: clamp(1rem, 5vw, 2rem);
   }

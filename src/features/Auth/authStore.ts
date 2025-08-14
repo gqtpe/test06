@@ -1,19 +1,18 @@
 import {defineStore} from "pinia";
 import testAPI from "@/api/testAPI.ts";
 import {useAppStore} from "@/features/App/appStore.ts";
-import type {AxiosError} from "axios";
 import showError from "@/utils/error-util.ts";
 
 export const useAuth = defineStore('auth', {
     state: () => ({
-        key: null as string|null
+        key: null as string | null
     }),
     actions: {
         async logIn(key: string) {
             const appStore = useAppStore()
             try {
                 const response = await testAPI.checkKey(key);
-                if(response.ok){
+                if (response.ok) {
                     testAPI._setKey(key)
                     this.key = key
                     localStorage.setItem("token", key)
@@ -24,7 +23,7 @@ export const useAuth = defineStore('auth', {
                 showError(error);
             }
         },
-        async initAuth(){
+        async initAuth() {
             const savedKey = localStorage.getItem("token");
             if (savedKey) {
                 const response = await testAPI.checkKey(savedKey);
@@ -34,7 +33,7 @@ export const useAuth = defineStore('auth', {
                 }
             }
         },
-        isLoggedIn(){
+        isLoggedIn() {
             return !!this.key
         }
     },
