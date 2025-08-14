@@ -14,7 +14,7 @@ const columns = [
   columnHelper.accessor((c) => dayjs(c.date_close).format("YYYY/MM/DD"), { header: "Date Close" }),
   columnHelper.accessor("supplier_article", { header: "Article" }),
   columnHelper.accessor("warehouse_name", { header: "Warehouse" }),
-  columnHelper.accessor((c) => Number(c.total_price).toFixed(2), { header: "Price" }),
+  columnHelper.accessor((c) => Number(c.quantity).toFixed(2), { header: "Price" }),
 ];
 const appStore = useAppStore()
 onMounted(()=>{
@@ -24,4 +24,5 @@ onMounted(()=>{
 
 <template>
   <DataPage :store="store" :fetchFn="store.getIncomes" :columns="columns" />
+
 </template>
